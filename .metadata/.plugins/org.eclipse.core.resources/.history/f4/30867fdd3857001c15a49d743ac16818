@@ -1,0 +1,5 @@
+package Org.Apache.maven.archetype.Maven.Archetype.quickstart;
+
+public class Runner_Class {
+
+}

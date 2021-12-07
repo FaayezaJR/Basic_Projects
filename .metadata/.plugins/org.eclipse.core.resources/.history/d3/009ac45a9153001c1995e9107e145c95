@@ -1,0 +1,72 @@
+package Org.Apache.maven.archetype.Maven.Archetype.quickstart;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Runner_Class {
+
+	public static void main(String[] args) throws InterruptedException, IOException {
+		System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "//Driver new//chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+		driver.get("http://automationpractice.com/index.php");
+		driver.findElement(By.xpath("//a[@class='login']")).click();
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("faayezaJR@gmail.com");
+		driver.findElement(By.xpath("//input[@id='passwd']")).sendKeys("JR29021603");
+		driver.findElement(By.xpath("//i[@class='icon-lock left']")).click();
+		WebElement Tshirts = driver.findElement(By.xpath("(//a[@title='T-shirts'])[2]"));
+		Tshirts.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+	    js.executeScript("window.scrollBy(0,550);");
+	    driver.findElement(By.xpath("//img[@title='Faded Short Sleeve T-shirts']")).click(); 
+	    Thread.sleep(5000);
+	    WebElement addcart = driver.findElement(By.xpath("//iframe[@class='fancybox-iframe']"));
+	    driver.switchTo().frame(addcart);
+	    Thread.sleep(5000);
+	    WebElement cartclick = driver.findElement(By.xpath("//button[@name='Submit']"));
+	    Actions ac = new Actions(driver);
+	    ac.moveToElement(cartclick).build().perform();
+	    ac.click(cartclick).build().perform();
+	    Thread.sleep(5000);
+		WebDriverWait wait=new WebDriverWait(driver, 70);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span")));
+	    WebElement proceedclick = driver.findElement(By.xpath("//*[@id=\"layer_cart\"]/div[1]/div[2]/div[4]/a/span"));
+        ac.moveToElement(proceedclick).build().perform();
+        ac.click(proceedclick).build().perform();
+        js.executeScript("window.scrollBy(0,650);");
+        driver.findElement(By.xpath("//*[@id=\"center_column\"]/p[2]/a[1]/span")).click();
+        js.executeScript("window.scrollBy(0,850);");
+        driver.findElement(By.xpath("//*[@id=\"center_column\"]/form/p/button/span")).click();
+        driver.findElement(By.xpath("//input[@name='cgv']")).click();
+        Thread.sleep(3000);
+        js.executeScript("window.scrollBy(0,850);");
+        driver.findElement(By.xpath("//*[@id=\"form\"]/p/button/span")).click();
+        Thread.sleep(3000);
+        js.executeScript("window.scrollBy(0,850);");
+        driver.findElement(By.xpath("//a[@class='cheque']")).click();
+        js.executeScript("window.scrollBy(0,850);");
+        driver.findElement(By.xpath("//*[@id=\"cart_navigation\"]/button/span")).click();
+        js.executeScript("window.scrollBy(0,350);");
+        Thread.sleep(3000);
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        File destination = new File("C:\\Users\\faayeza\\eclipse-workspace\\Selenium_Testing\\screenshots//pic3.png");
+        FileUtils.copyFile(source, destination);
+        
+	}}
+
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Driver new&apos; to &apos;Maven.Archetype.quickstart&apos;&#x0D;&#x0A;- Original project: &apos;Selenium_Testing&apos;&#x0D;&#x0A;- Destination element: &apos;Maven.Archetype.quickstart&apos;&#x0D;&#x0A;- Original element: &apos;Driver new&apos;" description="Copy folder" destination="=Maven.Archetype.quickstart" element1="Driver new" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1638452891452" units="0" version="1.0"/>
+</session>

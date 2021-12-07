@@ -1,0 +1,44 @@
+package Org.Apache.maven.archetype.Maven.Archetype.quickstart;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Base_Class {
+	
+ public static WebDriver driver;
+ 
+ public static WebDriver browser(String type) {
+	 
+	 if (type.equalsIgnoreCase("chrome")) {
+		 System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "//Driver new//chromedriver.exe");
+			 driver = new ChromeDriver();
+	 }
+	 else if (type.equalsIgnoreCase("firefox")) {
+		 System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir") + "//Driver new//chromedriver.exe");
+		 driver = new FirefoxDriver();
+	}
+	 driver.manage().window().maximize();
+	 return driver;
+ }
+
+ public static void clickOnWebElement(WebElement fjr) {
+ fjr.click();
+ 
+ 
+	
+}
+	 {
+		 
+	 
+	 
+	 
+		
+	}
+
+}
+ 
+ 
+
+}
